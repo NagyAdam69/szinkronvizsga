@@ -1,0 +1,20 @@
+﻿Model 3#Tesla#2017#491#14.4
+IONIQ 5#Hyundai#2021#481#16.7
+EV6#Kia#2021#528#16.5
+Taycan#Porsche#2019#407#21.0
+Zoe#Renault#2012#395#17.2
+Leaf#Nissan#2010#270#16.4
+Model Y#Tesla#2020#533#15.7
+i4#BMW#2021#590#16.1
+e-tron#Audi#2018#441#22.5
+Spring#Dacia#2021#230#13.9
+ID.3#Volkswagen#2020#426#15.4
+Model S#Tesla#2012#634#18.1
+EQS#Mercedes-Benz#2021#770#17.6
+Mokka-e#Opel#2020#338#17.4
+e-208#Peugeot#2019#340#16.0
+Mustang Mach-E#Ford#2020#440#18.8
+XC40 Recharge#Volvo#2020#418#23.8
+I-PACE#Jaguar#2018#470#22.0
+Model X#Tesla#2015#576#20.8
+BORN#Cupra#2021#424#15.5
