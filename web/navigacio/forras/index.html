@@ -1,48 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="hu">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="navigacio.css">
+    <title>Navigáció és térképek</title>
 </head>
 <body>
     <header>
-        <p>Navigáció és térképek</p>
+        <h1>Navigáció és térképek</h1>
     </header>
     <div id="bevezeto">
         <h2>Útvonalak és tájékozódás</h2>
-        <p>Az emberiség régóta keresi a módját, hogy biztonságosan tájékozódjon: a csillagokhoz, a domborzathoz és a vízhez igazodva haladtak először, majd papírra rögzített térképek és műszerek segítették az utazást. A térképészet fejlődésében kiemelkedő szerepet játszottak a vetületi térképek, köztük Gerardus Mercator munkái is.</p>
+        <p>Az emberiség régóta keresi a módját, hogy biztonságosan tájékozódjon: a csillagokhoz, a domborzathoz és a vízhez igazodva haladtak először, majd papírra rögzített térképek és műszerek segítették az utazást. A térképészet fejlődésében kiemelkedő szerepet játszottak a vetületi térképek, köztük <a href="https://hu.wikipedia.org/wiki/Gerardus_Mercator" target="_blank">Gerardus Mercator</a> munkái is.</p>
     </div>
     <main>
         <div class="card kek">
             <h2>Ősi tájékozódás</h2>
             <p>A tengeren és a síkságokon a legfontosabb támpontok gyakran a partvonal, a folyók és az égbolt voltak. A csillagok magasságának becslése segített szélességi kör közelítő meghatározásában, bár a hosszúsági kör pontos mérése sokáig komoly gondot okozott a hajósoknak.</p>
-            <!-- Minta: iranytu.jpg – részletek a szoveg.txt „Képek” szakaszában -->
             <img src="iranytu.jpg" alt="Réz iránytű a térképen">
         </div>
         <div class="card">
             <h2>Középkori térképek</h2>
             <p>A középkorban a másolással készült térképek ritkák és drágák voltak, gyakran vallási vagy adminisztratív célokat szolgáltak. A földrajzi ismeretek fokozatosan bővültek, és egyre több részlet került a lapokra, bár a távolságok arányai sokszor még pontatlanok maradtak.</p>
-            <!-- Minta: kezi_terkep.jpg – részletek a szoveg.txt „Képek” szakaszában -->
             <img src="kezi_terkep.jpg" alt="Régi kézzel színezett térképrészlet">
             <p>A térképek másolása és terjesztése lassú folyamat volt, ezért egy-egy példány gyakran hosszú ideig szolgált hivatkozási alapként.</p>
         </div>
-        
-        
+        <div class="card kek">
+            <h2>Felfedezések kora</h2>
+            <p>A 15–17. században a tengeri expedíciók új partvonalakat és szigeteket térképeztek fel. A kereskedőhajók útvonalai, a kikötők és a szorosok ismerete gazdasági előnyt jelentett, ezért a pontos térképek egyre nagyobb értéket képviseltek.</p>
+        </div>
+        <div class="card">
+            <h2>Pontos időmérés a tengeren</h2>
+            <p>A hosszúsági kör meghatározásához megbízható fedélzeti órára volt szükség. <a href="https://hu.wikipedia.org/wiki/John_Harrison" target="_blank">John Harrison</a> munkássága jelentős lépés volt a pontos időmérés felé: a megoldás hozzájárult ahhoz, hogy a hajók biztonságosabban tájékozódhassanak a nyílt tengeren is.</p>
+        </div>
+        <div class="card kek">
+            <h2>Műholdas navigáció</h2>
+            <p>A 20. század végétől a műholdas helymeghatározás vált széles körben elérhetővé. Ma a telefonokban és járművekben futó szoftverek másodpercek alatt számolnak útvonalat, miközben a hagyományos papírtérképeknek továbbra is megvan a maguk szerepe túrázáskor és tervezéskor.</p>
+            <img src="gps_kepernyo.jpg" alt="Képernyő GPS útvonallal">
+        </div>
         <div class="card">
             <h2>Múzeumi térkép poszter</h2>
             <p>Egy nagy méretű múzeumi poszter elkészítésének költségét meghatározó tényezők többek közt a</p>
             
-            térkép stílusa
-            térkép mérete
+            <ul>
+            <li>térkép stílusa</li>
+            <li>térkép mérete</li>
+            </ul>
             
-            <div class="szamolas">
+            <div class="szamolas kek">
                 <label for="szeles">Szélesség (mm)</label><br>
                 <input type="text" name="szeles" id="szeles"><br>
-                <label for="maags">Magasság (mm)</label><br>
+                <label for="magas">Magasság (mm)</label><br>
                 <input type="text" name="magas" id="magas"><br>
                 <label for="ar">Nyomat egységára</label><br>
-                <input type="range" name="ar" id="ar" ><br>
-                <button>Kalkuláció</button>
+                <input type="range" name="ar" id="ar" min="38" max="65" value="51"><br>
+                <button onclick="szamol()">Kalkuláció</button>
                 <p style="text-align: center;">A kalkuláció alapja</p>
                 <ul>
                     <li id="terulet"></li>
@@ -53,7 +66,23 @@
         </div>
     </main>
     <script>
-        
+        function szamol(){
+            let szelesseg = Number(document.getElementById("szeles").value);
+            let magassag = Number(document.getElementById("magas").value);
+            let ar = Number(document.getElementById("ar").value);
+
+            let terulet = szelesseg * magassag / 10000;
+
+            document.getElementById("terulet").innerText = "Terület: " + terulet.toFixed(2) + " dm²";
+
+            document.getElementById("koltseg").innerText = "Költség: " + ar + "Ft";
+
+            let osszkoltseg = terulet * ar;
+
+            document.getElementById("vegso").innerText = "Összköltség: " + osszkoltseg + "Ft";
+
+        }
+
     </script>
     
 </body>
